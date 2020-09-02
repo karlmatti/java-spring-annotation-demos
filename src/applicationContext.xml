@@ -5,4 +5,11 @@
     <bean id="myCoach" class="matti.karl.BaseballCoach">
 
     </bean>
+    <bean id="myLunch" class="matti.karl.SchoolLunch">
+
+    </bean>
+    <bean id="myLoggerConfig" class="matti.karl.config.MyLoggerConfig" init-method="initLogger">
+        <property name="rootLoggerLevel" value="FINE" />
+        <property name="printedLoggerLevel" value="FINE"/>
+    </bean>
 </beans>
