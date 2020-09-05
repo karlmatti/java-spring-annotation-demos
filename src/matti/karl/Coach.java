@@ -4,4 +4,5 @@ public interface Coach { // interface -> what is available, not how it's impleme
     public String getDailyWorkout();
 
     public String getDailyFortune();
+
 }

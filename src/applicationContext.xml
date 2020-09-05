@@ -7,16 +7,21 @@
 
     <!-- define dependency -->
     <bean id="myFortune" class="matti.karl.HappyFortuneService">
-
     </bean>
 
     <bean id="myCoach" class="matti.karl.BaseballCoach">
         <!-- set up constructor injection -->
         <constructor-arg ref="myFortune" />
     </bean>
-    <bean id="myLunch" class="matti.karl.SchoolLunch">
 
+    <bean id="myCricketCoach" class="matti.karl.CricketCoach">
+        <!-- set up setter injection -->
+        <property name="fortuneService" ref="myFortune"/>
+        <property name="email" value="bestcoach@cricket.com"/>
+        <property name="firstName" value="Phil"/>
     </bean>
+
+
 
     <bean id="myLoggerConfig" class="matti.karl.config.MyLoggerConfig" init-method="initLogger">
         <property name="rootLoggerLevel" value="FINE" />
