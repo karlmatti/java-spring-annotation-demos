@@ -1,6 +1,11 @@
 package matti.karl;
 
 public class BaseballCoach implements Coach {
+    private FortuneService fortuneService;
+
+    public BaseballCoach(FortuneService fortuneService) {
+        this.fortuneService = fortuneService;
+    }
 
     @Override
     public String getDailyWorkout(){
@@ -8,7 +13,9 @@ public class BaseballCoach implements Coach {
     }
 
     @Override
-    public String getDailyMotivation() {
-        return "One day or Day one - you decide";
+    public String getDailyFortune() {
+        return fortuneService.getFortune();
     }
+
+
 }

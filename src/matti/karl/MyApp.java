@@ -14,8 +14,10 @@ public class MyApp {
 
         // call the methods on the bean
         System.out.println(theCoach.getDailyWorkout());
-        System.out.println(theCoach.getDailyMotivation());
+
         System.out.println("Lunch for today is " + theLunch.getDailyDeal());
+
+        System.out.println(theCoach.getDailyFortune());
 
         // close the context
         context.close();

@@ -2,12 +2,22 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="myCoach" class="matti.karl.BaseballCoach">
 
+    <!-- define beans -->
+
+    <!-- define dependency -->
+    <bean id="myFortune" class="matti.karl.HappyFortuneService">
+
+    </bean>
+
+    <bean id="myCoach" class="matti.karl.BaseballCoach">
+        <!-- set up constructor injection -->
+        <constructor-arg ref="myFortune" />
     </bean>
     <bean id="myLunch" class="matti.karl.SchoolLunch">
 
     </bean>
+
     <bean id="myLoggerConfig" class="matti.karl.config.MyLoggerConfig" init-method="initLogger">
         <property name="rootLoggerLevel" value="FINE" />
         <property name="printedLoggerLevel" value="FINE"/>
