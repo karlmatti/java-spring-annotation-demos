@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- load the properties from sports.properties -->
+    <context:property-placeholder location="sports.properties"/>
+    <!-- define beans -->
+
+    <!-- define dependency -->
+    <bean id="myFortune" class="matti.karl.HappyFortuneService">
+    </bean>
+    <bean id="myRandomFortune" class="matti.karl.RandomFortuneService">
+    </bean>
+
+    <bean id="myCoach" class="matti.karl.BaseballCoach">
+        <!-- set up constructor injection -->
+        <constructor-arg ref="myFortune" />
+    </bean>
+
+    <bean id="myCricketCoach" class="matti.karl.CricketCoach">
+        <!-- set up setter injection -->
+        <property name="fortuneService" ref="myRandomFortune"/>
+
+        <!-- inject literal values -->
+        <property name="email" value="${coach.cricket.email}"/>
+        <property name="firstName" value="${coach.cricket.firstName}"/>
+    </bean>
+
+
+
+    <bean id="myLoggerConfig" class="matti.karl.config.MyLoggerConfig" init-method="initLogger">
+        <property name="rootLoggerLevel" value="FINE" />
+        <property name="printedLoggerLevel" value="FINE"/>
+    </bean>
+</beans>
