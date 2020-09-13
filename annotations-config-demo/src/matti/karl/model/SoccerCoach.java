@@ -1,13 +1,11 @@
 package matti.karl.model;
 
-import matti.karl.model.Coach;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BasketballCoach implements Coach {
-
+public class SoccerCoach implements Coach {
     @Override
     public String getDailyWorkout() {
-        return "10 minute jump rope jumps";
+        return "penalty kicks with real keeper";
     }
 }
