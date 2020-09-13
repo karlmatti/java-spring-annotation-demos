@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring-demo-one-v4.iml" filepath="$PROJECT_DIR$/spring-demo-one-v4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xml-config-demo.iml" filepath="$PROJECT_DIR$/xml-config-demo.iml" />
     </modules>
   </component>
 </project>
