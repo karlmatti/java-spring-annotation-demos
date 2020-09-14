@@ -7,5 +7,6 @@
 
     <!-- add entry to enable component scanning -->
     <context:component-scan base-package="matti.karl"/>
+    <context:property-placeholder location="classpath:sport.properties"/>
 
 </beans>

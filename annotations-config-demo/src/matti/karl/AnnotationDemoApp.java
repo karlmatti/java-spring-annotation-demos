@@ -1,5 +1,6 @@
 package matti.karl;
 
+import matti.karl.model.BasketballCoach;
 import matti.karl.model.Coach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,9 +10,10 @@ public class AnnotationDemoApp {
         // read spring config file
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
+        String coachBeanId = "basketballCoach";
         // get the bean from spring container
-        Coach coach = context.getBean("basketballCoach", Coach.class);
-
+        BasketballCoach coach = context.getBean(coachBeanId, BasketballCoach.class);
+        System.out.println(coach.getTeam() + " email is " + coach.getEmail());
         // call a method on the bean
         System.out.println(coach.getDailyWorkout());
         System.out.println(coach.getDailyFortune());

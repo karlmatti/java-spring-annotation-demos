@@ -3,6 +3,7 @@ package matti.karl.model;
 import matti.karl.model.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -10,6 +11,12 @@ public class BasketballCoach implements Coach {
     @Qualifier("randomFortuneService")
     @Autowired
     private FortuneService fortuneService;
+
+    @Value("${andresSober.email}")
+    private String email;
+    @Value("${andresSober.team}")
+    private String team;
+
     /*
     @Autowired
     public BasketballCoach(FortuneService theFortuneService){
@@ -40,5 +47,13 @@ public class BasketballCoach implements Coach {
     @Override
     public String getDailyFortune() {
         return fortuneService.getFortune();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTeam() {
+        return team;
     }
 }
