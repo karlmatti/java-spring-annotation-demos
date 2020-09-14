@@ -4,7 +4,7 @@ import matti.karl.model.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class BasketballCoach implements Coach {
     private FortuneService fortuneService;
     /*
@@ -17,9 +17,15 @@ public class BasketballCoach implements Coach {
         System.out.println("BasketballCoach: inside default constructor");
     }
 
-    @Autowired
+    /*@Autowired
     public void setFortuneService(FortuneService fortuneService) {
         System.out.println("BasketballCoach: inside setFortuneService method");
+        this.fortuneService = fortuneService;
+    }*/
+
+    @Autowired
+    public void myCustomMethod(FortuneService fortuneService) {
+        System.out.println("BasketballCoach: inside myCustomMethod method");
         this.fortuneService = fortuneService;
     }
 
