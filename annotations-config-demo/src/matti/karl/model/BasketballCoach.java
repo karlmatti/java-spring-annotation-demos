@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
-@Scope("prototype")
+// @Scope("prototype")
 public class BasketballCoach implements Coach {
     @Qualifier("randomFortuneService")
     @Autowired
@@ -57,5 +60,17 @@ public class BasketballCoach implements Coach {
 
     public String getTeam() {
         return team;
+    }
+
+    // define my init method
+    @PostConstruct
+    public void doMyStartupStuff(){
+        System.out.println("BasketballCoach: inside doMyStartupStuff()");
+    }
+
+    // define my destroy method
+    @PreDestroy
+    public void doMyCleanupStuff(){
+        System.out.println("BasketballCoach: inside doMyCleanupStuff()");
     }
 }
