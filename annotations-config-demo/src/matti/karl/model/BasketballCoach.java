@@ -4,11 +4,13 @@ import matti.karl.model.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("prototype")
 public class BasketballCoach implements Coach {
-    @Qualifier("fileFortuneService")
+    @Qualifier("randomFortuneService")
     @Autowired
     private FortuneService fortuneService;
 
