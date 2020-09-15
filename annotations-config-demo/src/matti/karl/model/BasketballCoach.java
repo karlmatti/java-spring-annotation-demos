@@ -13,7 +13,7 @@ import javax.annotation.PreDestroy;
 @Component
 // @Scope("prototype")
 public class BasketballCoach implements Coach {
-    @Qualifier("randomFortuneService")
+    @Qualifier("fileFortuneService")
     @Autowired
     private FortuneService fortuneService;
 
@@ -71,6 +71,7 @@ public class BasketballCoach implements Coach {
     // define my destroy method
     @PreDestroy
     public void doMyCleanupStuff(){
+        /* For "prototype" scoped beans, Spring does not call the @PreDestroy method. */
         System.out.println("BasketballCoach: inside doMyCleanupStuff()");
     }
 }

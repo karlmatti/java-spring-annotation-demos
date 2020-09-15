@@ -1,9 +1,9 @@
-package matti.karl;
+package matti.karl.app;
 
 import matti.karl.model.Coach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AnnotationBeanScopeDemoApp {
+public class AnnotationBeanScopeDemo {
     public static void main(String[] args) {
 
         // load spring config file

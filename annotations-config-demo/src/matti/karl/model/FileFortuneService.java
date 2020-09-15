@@ -3,6 +3,7 @@ package matti.karl.model;
 
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-//@Component
+@Component
 public class FileFortuneService implements FortuneService {
     private List<String> fortunes;
 
@@ -19,7 +20,8 @@ public class FileFortuneService implements FortuneService {
     // create a random number generator
     private Random myRandom = new Random();
 
-    public FileFortuneService() {
+    @PostConstruct
+    public void readFile(){
         File theFile = new File(fileName);
         System.out.println("Reading fortunes from file: " + theFile);
         System.out.println("File exists: " + theFile.exists());
@@ -38,6 +40,9 @@ public class FileFortuneService implements FortuneService {
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
+    public FileFortuneService() {
+
     }
 
     @Override

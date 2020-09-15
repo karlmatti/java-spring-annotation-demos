@@ -1,10 +1,10 @@
-package matti.karl;
+package matti.karl.app;
 
 import matti.karl.model.BasketballCoach;
 import matti.karl.model.Coach;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AnnotationDemoApp {
+public class AnnotationDemo {
 
     public static void main(String[] args) {
         // read spring config file
